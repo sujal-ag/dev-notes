@@ -21,6 +21,7 @@ COUNT(col)            -- non-null rows
 COUNT(DISTINCT col)   -- unique values
 MAX(col) / MIN(col)
 ROUND(AVG(col), 2)    -- 2 decimal places
+SUM(case when x = 'a' then z else y end)
 ```
 
 ---
@@ -57,6 +58,7 @@ WHERE t2.col = 'X'
 DATEDIFF(date1, date2)   -- date1 - date2 in days
 DATE_ADD(date, INTERVAL 1 DAY)
 DATE_SUB(date, INTERVAL 30 DAY)
+DATE_FORMAT(date, '%Y-%m')
 ```
 
 ---
@@ -84,16 +86,3 @@ WHERE dept_id IN (SELECT id FROM Department WHERE name = 'Sales')
 ```
 
 ---
-
-## Patterns — Yaad rakho
-
-| Problem | Use |
-|---|---|
-| Unmatched rows dhundho | `LEFT JOIN` + `IS NULL` |
-| Null ko 0 dikhaana | `IFNULL(col, 0)` |
-| Groups filter karna | `HAVING` |
-| Date gap | `DATEDIFF` |
-| Unique count | `COUNT(DISTINCT col)` |
-
----
-*SQL50 Q1–16 | aage badhega yeh file*
